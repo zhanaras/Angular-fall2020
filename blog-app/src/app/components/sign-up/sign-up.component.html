@@ -1,0 +1,135 @@
+<div class="signup">
+    <form class="example-form" [formGroup]="registerForm" (ngSubmit)="signUp()">
+        <h1>Sign up</h1>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name" class="form-control"/>
+          <div *ngIf="submitted && regF.name.errors" class="invalid-feedback">
+            <div *ngIf="regF.name.errors.required">Name is required</div>
+          </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username" class="form-control">
+            <div *ngIf="submitted && regF.username.errors" class="invalid-feedback">
+              <div *ngIf="regF.username.errors.required">Username is required</div>
+            </div>
+          </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email" class="form-control">
+            <div *ngIf="submitted && regF.email.errors" class="invalid-feedback">
+              <div *ngIf="regF.email.errors.required">Email is required</div>
+              <div *ngIf="regF.email.errors.email">Email is invalid</div>
+            </div>
+          </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" class="form-control">
+          <div *ngIf="submitted && regF.password.errors" class="invalid-feedback">
+            <div *ngIf="regF.password.errors.required">Password is required</div>
+        </div>
+        </mat-form-field>
+        <br>
+            <h3>Address</h3>
+            <mat-form-field class="example-full-width">
+                <mat-label>Street</mat-label>
+                <input matInput type="text" formControlName="street" class="form-control">
+                <div *ngIf="submitted && regF.street.errors" class="invalid-feedback">
+                  <div *ngIf="regF.street.errors.required">Street is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Suite</mat-label>
+                <input matInput type="text" formControlName="suite" class="form-control">
+                <div *ngIf="submitted && regF.suite.errors" class="invalid-feedback">
+                  <div *ngIf="regF.suite.errors.required">Suite is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>City</mat-label>
+                <input matInput type="text" formControlName="city" class="form-control">
+                <div *ngIf="submitted && regF.city.errors" class="invalid-feedback">
+                  <div *ngIf="regF.city.errors.required">City is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Zipcode</mat-label>
+                <input matInput type="text" formControlName="zipcode" class="form-control">
+                <div *ngIf="submitted && regF.zipcode.errors" class="invalid-feedback">
+                  <div *ngIf="regF.zipcode.errors.required">Zipcode is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Lat</mat-label>
+                <input matInput type="text" formControlName="lat" class="form-control">
+                <div *ngIf="submitted && regF.lat.errors" class="invalid-feedback">
+                  <div *ngIf="regF.lat.errors.required">Lat is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Lng</mat-label>
+                <input matInput type="text" formControlName="lng" class="form-control">
+                <div *ngIf="submitted && regF.lng.errors" class="invalid-feedback">
+                  <div *ngIf="regF.lng.errors.required">Lng is required</div>
+                </div>
+              </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput type="text" formControlName="phone" class="form-control">
+          <div *ngIf="submitted && regF.phone.errors" class="invalid-feedback">
+            <div *ngIf="regF.phone.errors.required">Phone is required</div>
+        </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Website</mat-label>
+            <input matInput type="text" formControlName="website" class="form-control">
+            <div *ngIf="submitted && regF.website.errors" class="invalid-feedback">
+              <div *ngIf="regF.website.errors.required">Website is required</div>
+          </div>
+          </mat-form-field>
+          <br>
+              <h3>Company info</h3>
+            <mat-form-field class="example-full-width">
+                <mat-label>Company name</mat-label>
+                <input matInput type="text" formControlName="compName" class="form-control">
+                <div *ngIf="submitted && regF.name.errors" class="invalid-feedback">
+                  <div *ngIf="regF.name.errors.required">Name is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Catch phrase</mat-label>
+                <input matInput type="text" formControlName="catchPhrase" class="form-control">
+                <div *ngIf="submitted && regF.catchPhrase.errors" class="invalid-feedback">
+                  <div *ngIf="regF.catchPhrase.errors.required">Catch phrase is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>BS</mat-label>
+                <input matInput type="text" formControlName="bs" class="form-control">
+                <div *ngIf="submitted && regF.bs.errors" class="invalid-feedback">
+                  <div *ngIf="regF.bs.errors.required">BS is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+        <div class="example-button-row">
+        <button mat-flat-button color="primary" [disabled]="loading">
+            Sign up
+        </button>
+        <div *ngIf="error">{{error}}</div>
+        </div>
+      </form>
+    
+    </div>

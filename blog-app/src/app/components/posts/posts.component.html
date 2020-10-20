@@ -1,0 +1,25 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <mat-list>
+      <div mat-subheader>Users</div>
+      <mat-list-item *ngFor = "let u of users; index as id">
+        <div mat-line><button mat-button color="primary" (click)="getUsersPosts(u.id)">{{ u.username }}</button></div>
+      </mat-list-item>
+      <mat-list-item>
+        <div mat-line><button mat-button color="primary" (click)="getPosts()">All posts</button></div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-list>
+      <div mat-subheader>Posts</div>
+      <mat-list-item  *ngFor = "let p of posts; index as id">
+        <div mat-line><button mat-button color="primary" [routerLink] = "['/posts', p.id]">{{ p.title }}</button></div>
+        <div mat-line> {{p.body}} </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-drawer-content>
+
+  

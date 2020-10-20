@@ -1,0 +1,58 @@
+<div class="container">
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ post?.title }}</mat-card-title>
+      <mat-card-subtitle>{{ post?.userId }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ post?.body }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <br>
+
+  <h3><b>Comments</b></h3>
+  <mat-list *ngFor = "let c of comments; index as commentId">
+    <mat-list-item><b>{{ c.name }}</b></mat-list-item>
+    <mat-list-item><i> by {{ c.email }}</i></mat-list-item>
+    <mat-list-item><p>{{ c.body }}</p></mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+
+  <div class="comment">
+    <form class="example-form" [formGroup]="commentForm" (ngSubmit)="postComment()">
+        <h1>Write a comment</h1>
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput type="text" formControlName="cName">
+          <div *ngIf="submitted && fCtrl.cName.errors" class="invalid-feedback">
+            <div *ngIf="fCtrl.cName.errors.required">Name is required</div>
+          </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="cEmail" class="form-control">
+          <div *ngIf="submitted && fCtrl.cEmail.errors" class="invalid-feedback">
+            <div *ngIf="fCtrl.cEmail.errors.required">Email is required</div>
+        </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Comment</mat-label>
+          <textarea matInput formControlName="cBody" class="form-control"></textarea>
+          <div *ngIf="submitted && fCtrl.cBody.errors" class="invalid-feedback">
+            <div *ngIf="fCtrl.cBody.errors.required">Comment is required</div>
+        </div>
+        </mat-form-field>
+        <br>
+        <div class="example-button-row">
+        <button mat-flat-button color="primary" [disabled]="loading">
+            Post!
+        </button>
+    </div>
+      </form>
+  </div>
+</div>
+  

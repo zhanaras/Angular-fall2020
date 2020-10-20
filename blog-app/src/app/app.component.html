@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <h1>Blog</h1>
+      <div class="spacer"></div>
+      <button
+          mat-button
+          *ngIf="!loginService.currentUserValue"
+          [routerLink] = "['/']"
+      >
+          Sign in
+      </button>
+      <button
+          mat-button
+          *ngIf="!loginService.currentUserValue"
+      >
+          Sign up
+      </button>
+      <button
+          mat-button
+          *ngIf="loginService.currentUserValue"
+          [routerLink] = "['/']"
+      >
+          Posts
+      </button>
+      <button
+          mat-button
+          *ngIf="loginService.currentUserValue"
+          [routerLink] = "['/create-post']"
+      >
+          Create post
+      </button>
+      <button
+          mat-button
+          *ngIf="loginService.currentUserValue"
+          (click)="loginService.logout()"
+          [routerLink] = "['/']"
+      >
+          Sign out
+      </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>
+

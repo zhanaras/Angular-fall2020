@@ -1,0 +1,47 @@
+<div class="body">
+<form class="example-form" [formGroup] = "newPost" (ngSubmit)="createPost()">
+    <h1>Create a post</h1>
+<mat-form-field class="example-full-width">
+    <mat-label>
+        Title
+    </mat-label>
+    <input matInput type="text" formControlName="title">
+</mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+    <mat-label>
+        Body
+    </mat-label>
+    <textarea matInput formControlName="title"></textarea>
+</mat-form-field>
+<br>
+<button mat-flat-button color="primary">
+    Post!
+</button>
+</form>
+</div>
+<!-- <form class="example-form" [formGroup]="newPost" (ngSubmit)="createPost()">
+    <h1>Create a post</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+          <input matInput type="text" formControlName="title">
+          <div *ngIf="submitted && f.username.errors">
+            <div *ngIf="f.username.errors.required">Title is required</div>
+          </div>
+        </mat-form-field>
+    <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Body</mat-label>
+          <textarea matInput type="text" formControlName="body">
+          <div *ngIf="submitted && f.body.errors">
+            <div *ngIf="f.password.errors.required">Body is required</div>
+        </div>
+        </mat-form-field>
+    <br>
+        <div class="example-button-row">
+        <button mat-flat-button color="primary" [disabled]="loading">
+            Post!
+        </button>
+        <div *ngIf="error">{{error}}</div>
+        </div>
+</form>    -->

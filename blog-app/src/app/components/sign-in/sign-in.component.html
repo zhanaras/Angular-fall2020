@@ -1,0 +1,135 @@
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <h1>Sign in</h1>
+                    <label for="username"><h3>Username</h3></label>
+                    <input matInput type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="password"><h3>Password</h3></label>
+                    <br>
+                    <input matInput type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <br>
+                <button mat-raised-button color="primary" [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+</form> -->
+<!-- <div class="signin">
+<form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Sign in</h1>
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+    </mat-form-field>
+    <br>
+    <div class="example-button-row">
+    <button mat-flat-button color="primary" [disabled]="loading">
+        Sign in
+    </button>
+    <button mat-stroked-button color="primary" [disabled]="loading" [routerLink]= "['/registartion']">
+        Sign Up
+    </button>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+</div>
+  </form>
+
+</div>
+   -->
+        <div class="signin">
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <h1>Sign in</h1>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Username</mat-label>
+                  <input matInput type="text" formControlName="username" class="form-control">
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                  </div>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" formControlName="password" class="form-control">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+                </mat-form-field>
+                <br>
+                <div class="example-button-row">
+                <button mat-flat-button color="primary" [disabled]="loading">
+                    Sign in
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </div>
+              </form>
+            
+            </div>
+            <!-- <form class="example-form" [formGroup]="addressForm">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Street</mat-label>
+                  <input matInput type="text" formControlName="streetCtrl" />
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Suite</mat-label>
+                    <input matInput type="text" formControlName="suiteCtrl" />
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>City</mat-label>
+                    <input matInput type="text" formControlName="cityCtrl" />
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Zipcode</mat-label>
+                    <input matInput type="text" formControlName="zipcodeCtrl" />
+                  </mat-form-field>              
+            </form>
+            <mat-form-field class="example-full-width">
+                <mat-label>Phone</mat-label>
+                <input matInput type="text" formControlName="phoneCtrl" class="form-control" [ngClass]="{ 'is-invalid': submitted && regF.phone.errors }">
+                <div *ngIf="submitted && regF.phoneCtrl.errors" class="invalid-feedback">
+                  <div *ngIf="regF.phoneCtrl.errors.required">Phone is required</div>
+                </div>
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Website</mat-label>
+                <input matInput type="text" formControlName="websiteCtrl" />
+              </mat-form-field>
+            <br>
+            <form class="example-form" [formGroup]="companyForm">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Company name</mat-label>
+                  <input matInput type="text" formControlName="compNameCtrl" />
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>catch phrase</mat-label>
+                    <input matInput type="text" formControlName="catchPhraseCtrl" />
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>BS</mat-label>
+                    <input matInput type="text" formControlName="bsCtrl" />
+                  </mat-form-field>             -->
+            <!-- </form> -->
