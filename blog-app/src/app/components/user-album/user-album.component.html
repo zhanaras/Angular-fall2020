@@ -1,0 +1,10 @@
+<mat-list>
+    <!-- <div mat-subheader>Albums</div> -->
+    <mat-list-item *ngFor="let a of albums">
+      <mat-icon mat-list-icon>note</mat-icon>
+      <div mat-line>{{a.title}}</div>
+      <div mat-line>ID: {{a.id}} </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  

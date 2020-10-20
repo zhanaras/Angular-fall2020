@@ -20,8 +20,8 @@ export class SignUpService {
     return this.currentUserSubject.value;
 }
 
-register(newuser: Users){
-  return this.http.post(`http://localhost:3000/users`, newuser
+register(newUser: Users){
+  return this.http.post(`http://localhost:3000/users`, newUser
 //   {
 //     name: newuser.name,
 //     username: newuser.username,

@@ -45,17 +45,23 @@ export class SignUpComponent implements OnInit {
     username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
-    street: ['', Validators.required],
-    suite: ['', Validators.required],
-    city: ['', Validators.required],
-    zipcode: ['', Validators.required],
-    lat: ['', Validators.required],
-    lng: ['', Validators.required],
-    phone: ['', Validators.required],
-    website: ['', Validators.required],
-    compName:['', Validators.required],
-    catchPhrase: ['', Validators.required],
-    bs: ['', Validators.required]
+    address: this.formBuilder.group({
+      street: [''],
+      suite: [''],
+      city: [''],
+      zipcode: [''],
+      geo: this.formBuilder.group({
+        lat: [''],
+        lng: [''],
+      })
+    }),
+    phone: [''],
+    website: [''],
+    company: this.formBuilder.group({
+      compName:[''],
+      catchPhrase: [''],
+      bs: ['']
+    })
   })
 
   get regF(){

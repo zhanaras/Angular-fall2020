@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Albums } from '../interfaces/albums';
+import { Users } from '../interfaces/users';
+import { AlbumsService } from '../services/albums.service';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-content-projection',
-  templateUrl: './content-projection.component.html',
+  template: `<ng-content></ng-content>
+  <app-child-content>
+  </app-child-content>`,
   styleUrls: ['./content-projection.component.scss']
 })
 export class ContentProjectionComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }

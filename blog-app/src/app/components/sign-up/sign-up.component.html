@@ -34,6 +34,7 @@
         </div>
         </mat-form-field>
         <br>
+        <div formGroupName="address">
             <h3>Address</h3>
             <mat-form-field class="example-full-width">
                 <mat-label>Street</mat-label>
@@ -67,6 +68,7 @@
                 </div>
               </mat-form-field>
             <br>
+            <div formGroupName="geo">
             <mat-form-field class="example-full-width">
                 <mat-label>Lat</mat-label>
                 <input matInput type="text" formControlName="lat" class="form-control">
@@ -82,7 +84,9 @@
                   <div *ngIf="regF.lng.errors.required">Lng is required</div>
                 </div>
               </mat-form-field>
-        <br>
+            </div>
+        </div>
+      <br>
         <mat-form-field class="example-full-width">
           <mat-label>Phone</mat-label>
           <input matInput type="text" formControlName="phone" class="form-control">
@@ -99,6 +103,7 @@
           </div>
           </mat-form-field>
           <br>
+          <div formGroupName="company">
               <h3>Company info</h3>
             <mat-form-field class="example-full-width">
                 <mat-label>Company name</mat-label>
@@ -123,6 +128,7 @@
                   <div *ngIf="regF.bs.errors.required">BS is required</div>
                 </div>
               </mat-form-field>
+            </div>
             <br>
         <div class="example-button-row">
         <button mat-flat-button color="primary" [disabled]="loading">

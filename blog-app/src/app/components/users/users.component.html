@@ -1,0 +1,13 @@
+<mat-list>
+    <div mat-subheader>Select a user</div>
+    <mat-list-item *ngFor="let u of users">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <div mat-line><button mat-button (click)="goToUsers(u.id)">{{ u.username }}</button></div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+<app-user-album></app-user-album>
+
+
+  
+  

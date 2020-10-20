@@ -13,12 +13,14 @@
   </mat-drawer>
   <mat-drawer-content>
     <mat-list>
+      <div class="posts">
       <div mat-subheader>Posts</div>
       <mat-list-item  *ngFor = "let p of posts; index as id">
         <div mat-line><button mat-button color="primary" [routerLink] = "['/posts', p.id]">{{ p.title }}</button></div>
         <div mat-line> {{p.body}} </div>
       </mat-list-item>
       <mat-divider></mat-divider>
+    </div>
     </mat-list>
   </mat-drawer-content>
 

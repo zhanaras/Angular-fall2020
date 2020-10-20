@@ -20,15 +20,18 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostsComponent } from './components/posts/posts.component';
-import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { RouteBasedComponent } from './route-based/route-based.component';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RouteBasedComponent } from './route-based/route-based.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserAlbumComponent } from './components/user-album/user-album.component';
+import { ChildContentComponent } from './child-content/child-content.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +39,15 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     SignInComponent,
     PostDetailComponent,
     PostsComponent,
-    UserDetailComponent,
     CreatePostComponent,
-    RouteBasedComponent,
     ContentProjectionComponent,
     MainPageComponent,
-    SignUpComponent
+    SignUpComponent,
+    NotFoundComponent,
+    RouteBasedComponent,
+    UsersComponent,
+    UserAlbumComponent,
+    ChildContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     ReactiveFormsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [
     AuthInterceptor,

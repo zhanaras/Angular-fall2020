@@ -28,25 +28,27 @@ export class CreatePostComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    console.log(this.userId);
   }
 
   get f() { 
     return this.newPost.controls; 
   }
 
-  get userId(): number {
-    return Number(localStorage.getItem("userId")) + 1;
-  }
+  user = JSON.parse(localStorage.getItem('currentUser'))
+  userId = this.user.userId;
+
 
   createPost(){
     this.submitted =true;
     if (this.newPost.invalid){
-      console.log('ty dura')
+      return;
     }
     this.postsService.createPost(this.userId, this.f.title.value, this.f.body.value).pipe(first())
     .subscribe(
       data => {
         window.alert("Your post is published")
+        window.location.reload;
         console.log(data)
       },
       error => {

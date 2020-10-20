@@ -39,12 +39,12 @@ export class PostDetailComponent implements OnInit {
   }
 
   getPostById(){
-    const id = +this.route.snapshot.paramMap.get('id') + 1;
+    const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.getPostById(id).subscribe(post => {this.post = post;})
   }
 
   getComments(){
-    const id = +this.route.snapshot.paramMap.get('id') + 1;
+    const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.getPostsComment(id).subscribe(comments => {this.comments = comments;})
   }
 
@@ -75,7 +75,6 @@ export class PostDetailComponent implements OnInit {
       if(this.commentForm.invalid){
         return;
       }
-      this.loading = true;
       this.postsService.postComment(this.postId, this.fCtrl.cName.value, this.fCtrl.cEmail.value, this.fCtrl.cBody.value)
       .subscribe(
           comment => this.comments.push(comment));

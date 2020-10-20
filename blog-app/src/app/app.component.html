@@ -32,6 +32,20 @@
       <button
           mat-button
           *ngIf="loginService.currentUserValue"
+          [routerLink] = "['/route-based-albums']"
+      >
+          Route-based
+      </button>
+      <button
+          mat-button
+          *ngIf="loginService.currentUserValue"
+          [routerLink] = "['/content-projection-based']"
+      >
+          Content projection based
+      </button>
+      <button
+          mat-button
+          *ngIf="loginService.currentUserValue"
           (click)="loginService.logout()"
           [routerLink] = "['/']"
       >

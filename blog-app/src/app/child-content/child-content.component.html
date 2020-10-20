@@ -1,0 +1,20 @@
+<mat-drawer-container class="example-container">
+<mat-drawer mode="side" opened>
+  <mat-list>
+    <div mat-subheader>Users</div>
+    <mat-list-item *ngFor = "let u of users">
+      <div mat-line><button mat-button color="primary" (click)="getUserAlbum(u.id)">{{ u.username }}</button></div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</mat-drawer>
+<mat-drawer-content>
+  <mat-list>
+    <div class="albums">
+    <div mat-subheader>Albums</div>
+    <mat-list-item  *ngFor = "let a of albums">
+      <div mat-line> {{a.title}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+  </mat-list>
