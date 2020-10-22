@@ -13,8 +13,9 @@
     <div class="albums">
     <div mat-subheader>Albums</div>
     <mat-list-item  *ngFor = "let a of albums">
-      <div mat-line> {{a.title}} </div>
+      <div mat-line><b>{{a.title}} </b></div>
+      <div mat-line>{{a.id}}</div>
+      <mat-divider></mat-divider>
     </mat-list-item>
-    <mat-divider></mat-divider>
   </div>
   </mat-list>

@@ -33,21 +33,25 @@ export class PostsService {
   getPosts(): Observable<Posts[]>{
     let user = JSON.parse(localStorage.getItem('currentUser'))
     let token = user.access_token
-    return this.http.get<Posts[]>(`http://localhost:3000/posts`, {
+    return this.http.get<Posts[]>(`http://localhost:3000/posts`, 
+    {
       headers: {
         Authorization: `${token}`
       },
-    })
+    }
+    )
   }
 
   getPostById(id: number): Observable<any>{
     let user = JSON.parse(localStorage.getItem('currentUser'))
     let token = user.access_token
-    return this.http.get<Posts>(`http://localhost:3000/posts/${id}`, {
+    return this.http.get<Posts>(`http://localhost:3000/posts/${id}`,
+     {
       headers: {
         Authorization: `${token}`
       },
-    });
+    }
+    );
   }
 
   getPostsComment(id: number): Observable<Comments[]>{

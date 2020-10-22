@@ -11,6 +11,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouteBasedComponent } from './route-based/route-based.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserAlbumComponent } from './components/user-album/user-album.component';
+import { ChildContentComponent } from './child-content/child-content.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
         path: ':id', component: UserAlbumComponent
       }
     ] },
-  { path: '**', component: NotFoundComponent }
+    { path: 'child', component: ChildContentComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

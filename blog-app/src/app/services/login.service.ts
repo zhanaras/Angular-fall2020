@@ -21,6 +21,10 @@ export class LoginService {
     return this.currentUserSubject.value;
 }
 
+public getToken(): string{
+  return localStorage.getItem('access_token')
+}
+
    login(username: string, password: string) {
     return this.http.post<any>(`http://localhost:3000/sign-in`, { username, password })
         .pipe(map(user => {

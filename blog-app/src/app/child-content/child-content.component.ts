@@ -19,7 +19,7 @@ export class ChildContentComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getUsers;
+    this.getUsers();
   }
 
   getUsers() {
