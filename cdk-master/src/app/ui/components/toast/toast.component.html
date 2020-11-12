@@ -1,0 +1,14 @@
+<div *ngIf="data.hasDuration">
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+</div>
+<div *ngIf="data.hasTitle">
+    <b>{{data.title}}</b>
+</div>
+<div>
+    {{data.message}}
+</div>
+<div *ngIf="data.hasButton">
+<button mat-flat-button (click)="snackBarRef.dismiss()">
+    Close
+</button>
+</div>

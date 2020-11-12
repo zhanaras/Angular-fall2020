@@ -1,1 +1,56 @@
-<p>toasts-page works!</p>
+
+<form [formGroup] = "toastForm" (ngSubmit)="showToast()">
+    <mat-form-field class="example-full-width">
+        <mat-label>Toast title</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Toast body</mat-label>
+        <input matInput formControlName="body">
+      </mat-form-field>
+      <br>
+      <h5>Choose type</h5>
+    <mat-radio-group aria-label="Select an option">
+        <input type = "radio" value="success" formControlName="type"> Success
+        <br>
+        <input type = "radio" value="fail" formControlName="type"> Fail
+        <br>
+    </mat-radio-group>
+
+    <h5>Choose duration</h5>
+    <mat-slider 
+        thumbLabel
+        tickInterval="1000"
+        min="1000"
+        max="6000"
+        formControlName = "duration"></mat-slider>
+    <br>
+
+    <mat-slide-toggle formControlName="showTitle">Show Title</mat-slide-toggle>
+    <br>
+    <mat-slide-toggle formControlName="hasCloseButton">Has Close Button</mat-slide-toggle>
+    <br>
+    <mat-slide-toggle formControlName="showDuration">Show Duration</mat-slide-toggle>
+    <br>
+
+    <mat-radio-group aria-label="Vertical Position">
+        <h5>Vertical Position</h5>
+        <input type = "radio" value="top" formControlName="vPos"> Top
+        <br>
+        <input type = "radio" value="bottom" formControlName="vPos"> Bottom
+        <br>
+    </mat-radio-group>
+
+    <mat-radio-group aria-label="Horizontal Position">
+        <h5>Horizontal Position</h5>
+        <input type = "radio" value="top" formControlName="hPos"> Start
+        <br>
+        <input type = "radio" value="center" formControlName="hPos"> Center
+        <br>
+        <input type = "radio" value="bottom" formControlName="hPos"> End
+    </mat-radio-group>
+    <br>
+    <button mat-flat-button color="primary" type="submit">Show toast</button>
+
+</form>
