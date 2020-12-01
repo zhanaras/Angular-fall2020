@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, OnInit, Output } from '@angular/core';
 import { ToastService } from 'src/app/ui/services/toast.service';
 import { FormBuilder } from '@angular/forms';
+import { TOAST_TRIGGER, CLOSE_ANIMATION } from './toast-animations'
+// import { randomInt } from 'crypto';
 
 @Component({
   templateUrl: './toasts-page.component.html',
-  styleUrls: ['./toasts-page.component.scss']
+  styleUrls: ['./toasts-page.component.scss'],
+  animations: [TOAST_TRIGGER]
 })
 export class ToastsPageComponent implements OnInit {
 
+  state: 'top-start-show' | 'top-center-show' | 'top-end-show' | 'bottom-start-show' | 'bottom-center-show' | 'bottom-end-show' | 'top-start-hide' | 'top-center-hide' | 'top-end-hide' | 'bottom-start-hide' | 'bottom-center-hide' | 'bottom-end-hide';
+
   constructor(private toastService: ToastService,
               private fb: FormBuilder){}
+
+  
 
   toastForm = this.fb.group({
     title: ['Toast title'],
@@ -32,32 +39,24 @@ export class ToastsPageComponent implements OnInit {
 
   showDur = this.f.showDuration.value;
 
-  showToast(){
+  showToasts(){
+    this.toastService.openSnackBar(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value, this.f.vPos.value, this.f.hPos.value);
+  }
+  
+  rand(){
+    let randNum = Math.floor((Math.random() * 10) + 1)
+    if(randNum===3){
+      try {
+      throw new Error('got three');
+      } catch (ex) {
+        this.toastService.openSnackBarError('Error', 'You got three', 'fail', true, true)
+        console.log(ex.message);
+      }
+    }
+    else{
+      this.toastService.openSnackBarError('Success', 'It is not three', 'success', true, true)
+      console.log(randNum);
+    }
+  }
 
-            if(this.f.vPos.value == 'top'){
-              if(this.f.hPos.value == 'top'){
-                this.toastService.openSnackBar_tt(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-              else if(this.f.hPos.value == 'center'){
-                this.toastService.openSnackBar_tc(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-              else if(this.f.hPos.value == 'bottom'){
-                this.toastService.openSnackBar_tb(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-            }
-            else if(this.f.vPos.value == 'bottom'){
-              if(this.f.hPos.value == 'top'){
-                this.toastService.openSnackBar_bt(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-              else if(this.f.hPos.value == 'center'){
-                this.toastService.openSnackBar_bc(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-              else if(this.f.hPos.value == 'bottom'){
-                this.toastService.openSnackBar_bb(this.f.title.value, this.f.body.value, this.f.type.value, this.f.duration.value, this.f.showDuration.value, this.f.hasCloseButton.value, this.f.showTitle.value)
-              }
-            }
-            else{
-              this.toastService.openSnackBar('Default toast', 'This is default toast message with title, button and duration', true, true, true)
-            }
-          }
-        }
+}

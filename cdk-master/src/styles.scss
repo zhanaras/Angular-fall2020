@@ -19,3 +19,81 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #cc0000;
     color:white;
 }
+
+.top.start.mat-snack-bar-container{
+    animation: slide-top-start 0.5s forwards;
+}
+
+.top.center.mat-snack-bar-container{
+    animation: slide-top-center 0.5s forwards;
+}
+
+.top.end.mat-snack-bar-container{
+    animation: slide-top-end 0.5s forwards;
+}
+
+.bottom.start.mat-snack-bar-container{
+    animation: slide-bottom-start 0.5s forwards;
+}
+
+.bottom.center.mat-snack-bar-container{
+    animation: slide-bottom-center 0.5s forwards;
+}
+
+.bottom.end.mat-snack-bar-container{
+    animation: slide-bottom-end 0.5s forwards;
+}
+
+@keyframes slide-top-start {
+    0% {
+        margin-left:-500px;
+    }
+    100% {
+        margin-left:10px;
+    }
+}
+
+@keyframes slide-top-center {
+    0% {
+        margin-top:-300px;
+    }
+    100% {
+        margin-top:20px;
+    }
+}
+
+@keyframes slide-top-end {
+    0% {
+        margin-right:-300px;
+    }
+    100% {
+        margin-right:10px;
+    }
+}
+
+@keyframes slide-bottom-start {
+    0% {
+        margin-left:-500px;
+    }
+    100% {
+        margin-left:10px;
+    }
+}
+
+@keyframes slide-bottom-center {
+    0% {
+        margin-bottom:-300px;
+    }
+    100% {
+        margin-bottom:20px;
+    }
+}
+
+@keyframes slide-bottom-end {
+    0% {
+        margin-right:-300px;
+    }
+    100% {
+        margin-right:10px;
+    }
+}

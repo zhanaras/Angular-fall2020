@@ -1,5 +1,5 @@
 
-<form [formGroup] = "toastForm" (ngSubmit)="showToast()">
+<form [formGroup] = "toastForm" (ngSubmit)="showToasts()">
     <mat-form-field class="example-full-width">
         <mat-label>Toast title</mat-label>
         <input matInput formControlName="title">
@@ -44,13 +44,15 @@
 
     <mat-radio-group aria-label="Horizontal Position">
         <h5>Horizontal Position</h5>
-        <input type = "radio" value="top" formControlName="hPos"> Start
+        <input type = "radio" value="start" formControlName="hPos"> Start
         <br>
         <input type = "radio" value="center" formControlName="hPos"> Center
         <br>
-        <input type = "radio" value="bottom" formControlName="hPos"> End
+        <input type = "radio" value="end" formControlName="hPos"> End
     </mat-radio-group>
     <br>
     <button mat-flat-button color="primary" type="submit">Show toast</button>
-
 </form>
+<br>
+<button mat-flat-button (click)="rand()">Randomize</button>
+
