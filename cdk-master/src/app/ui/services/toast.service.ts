@@ -10,6 +10,8 @@ export class ToastService{
 
   constructor(private _snackBar: MatSnackBar) {}
 
+  isOpen: boolean
+
   openSnackBar(title: string, displayMessage: string, messageType: 'fail' | 'success', duration: number, hasDuration: boolean, hasButton: boolean, hasTitle: boolean, vPos: MatSnackBarVerticalPosition, hPos: MatSnackBarHorizontalPosition) {
     this._snackBar.openFromComponent(ToastComponent, {
       data: {
@@ -25,6 +27,7 @@ export class ToastService{
       horizontalPosition: hPos,
       panelClass: [messageType, vPos, hPos]
     });
+    this.isOpen == true;
   }
 
   openSnackBarError(title: string, displayMessage: string, messageType: 'fail' | 'success', hasButton: boolean, hasTitle: boolean) {

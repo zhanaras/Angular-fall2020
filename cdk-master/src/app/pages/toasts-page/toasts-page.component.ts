@@ -1,13 +1,40 @@
 import { Component, EventEmitter, HostBinding, HostListener, OnInit, Output } from '@angular/core';
 import { ToastService } from 'src/app/ui/services/toast.service';
 import { FormBuilder } from '@angular/forms';
-import { TOAST_TRIGGER, CLOSE_ANIMATION } from './toast-animations'
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 // import { randomInt } from 'crypto';
 
 @Component({
   templateUrl: './toasts-page.component.html',
   styleUrls: ['./toasts-page.component.scss'],
-  animations: [TOAST_TRIGGER]
+  animations: [
+    trigger('openClose', [
+      // ...
+      state('open', style({
+        height: '200px',
+        opacity: 1,
+        backgroundColor: 'yellow'
+      })),
+      state('closed', style({
+        height: '100px',
+        opacity: 0.5,
+        backgroundColor: 'green'
+      })),
+      transition('open => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+    ]),
+  ]
 })
 export class ToastsPageComponent implements OnInit {
 
@@ -57,6 +84,12 @@ export class ToastsPageComponent implements OnInit {
       this.toastService.openSnackBarError('Success', 'It is not three', 'success', true, true)
       console.log(randNum);
     }
+  }
+
+  isOpen = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
 }

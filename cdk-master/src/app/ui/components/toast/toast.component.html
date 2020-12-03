@@ -1,3 +1,5 @@
+<div @slideIn
+@slideOut>
 <div *ngIf="data.hasDuration">
     <mat-progress-bar mode="determinate"></mat-progress-bar>
 </div>
@@ -8,7 +10,8 @@
     {{data.message}}
 </div>
 <div *ngIf="data.hasButton">
-<button mat-flat-button (click)="snackBarRef.dismiss()">
+<button mat-flat-button (click)="toggle()" >
     Close
 </button>
+</div>
 </div>

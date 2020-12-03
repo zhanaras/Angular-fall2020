@@ -1,0 +1,14 @@
+.top.start.mat-snack-bar-container{
+    @if isClosed == true{
+        animation: slide-top-start-out 0.5 forwards;
+    }
+    }
+    
+    @keyframes slide-top-start-out {
+        0% {
+            margin-left: 10px;
+        }
+        100% {
+            margin-left: -500px;
+        }
+    }
