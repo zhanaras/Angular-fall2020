@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+}
+
+.header img{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+.name{
+    margin: 20px;
+}
+
+.song-name{
+    display: flex;
+}
+
+.song-name p{
+    text-indent: 0.5em;
+}
+
+.material-icons{
+    margin: 0 auto;
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+.player img{
+    width: 50px;
+    height: 50px;
+}
+
+.example-form{
+    margin-left: 20%;
+    width: 80%
+}
+
+.example-form .mat-form-field input{
+    width: 100%
+}

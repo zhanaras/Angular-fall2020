@@ -1,0 +1,42 @@
+.example-card{
+    max-width: 100%;
+}
+
+.description{
+    display: flex;
+}
+
+.title{
+    margin-top: 15px;
+}
+
+.name{
+    display: flex;
+}
+
+.material-icons{
+    top: 0px;
+}
+
+.example-card .album-cover{
+    max-width: 200px;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+.player{
+    width: 80%;
+    margin-left: 260px;
+}
+
+.player audio{
+    width: 90%;
+}
+
+.player .number{
+    margin: 10px;
+}
+
+.player .material-icons{
+    margin-top: -50px;
+}

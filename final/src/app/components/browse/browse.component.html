@@ -1,0 +1,82 @@
+<div *ngIf="isLogged">
+<div class="welcome-message">
+    <h1><b>Need music?</b></h1>
+    <p>Search your favorite artists, songs, albums and more in AirPlay application</p>
+</div>
+
+
+
+<div class="newR" id="new-releases">
+    <button mat-flat-button color="primary"><h2>Check out new releases!</h2></button>
+    <br>
+    
+<div *ngFor="let n of newReleases; index as id" class="new">
+    <table style="width:100%">
+        <a mat-button [routerLink] = "['/new-releases', n.id]">
+    <tr>
+      <td><img src="{{n.images[0].url}}"></td>
+    </tr>
+    <tr>
+      <th><p>{{n.name}}</p></th>
+    </tr>
+</a>
+  </table>
+</div>
+</div>
+
+<div class="newR" id="local-new-releases">
+    <button mat-flat-button color="primary"><h2>Popular in Kazakhstan</h2></button>
+    <br>
+    
+<div *ngFor="let l of lNew; index as id" class="new">
+    <table style="width:100%">
+        <a mat-button [routerLink] = "['/new-releases', l.id]">
+    <tr>
+      <td><img src="{{l.images[0].url}}"></td>
+    </tr>
+    <tr>
+      <th><p>{{l.name}}</p></th>
+    </tr>
+</a>
+  </table>
+</div>
+</div>
+
+<div class="newR" id="playlists">
+    <button mat-flat-button color="primary"><h2>Playlists for you</h2></button>
+    <br>
+<div *ngFor="let r of rec; index as id" class="new">
+    <table style="width:100%">
+        <a mat-button [routerLink] = "['/playlist', r.id]">
+    <tr>
+      <td><img src="{{r.images[0].url}}"></td>
+    </tr>
+    <tr>
+      <th><p>{{r.name}}</p></th>
+    </tr>
+    </a>
+  </table>
+</div>
+</div>
+
+<div class="newR" id="categories">
+    <button mat-flat-button color="primary"><h2>Browse categories</h2></button>
+    <br>
+<div *ngFor="let c of categ; index as id" class="new">
+  <table style="width:100%">
+    <a mat-button [routerLink] = "['/categories', c.id]">
+<tr>
+  <td><img src="{{c.icons[0].url}}"></td>
+</tr>
+<tr>
+  <th><p>{{c.name}}</p></th>
+</tr>
+</a>
+</table>
+</div>
+</div>
+</div>
+
+<div *ngIf="!isLogged">
+  <h3>please log in</h3>
+</div>

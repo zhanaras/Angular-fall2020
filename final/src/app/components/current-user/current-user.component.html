@@ -1,0 +1,52 @@
+<div *ngIf="user">
+    <div class="header">
+        <img class="userpic" src="{{user.images[0].url}}">
+        <div class="name">
+            <h1><a href="{{user.external_urls.spotify}}" target="_blank" title="open in Spotify">{{user.display_name}}</a></h1>
+            <button mat-flat-button color="primary">{{user.followers.total}} followers</button>
+        </div>
+    </div>
+
+    <div *ngIf="albums">
+    <div *ngFor = "let a of albums.items" class="new">
+        <table style="width:100%">
+            <a mat-button [routerLink] = "['/playlist', a.id]">
+        <tr>
+            <div *ngIf="a.images[0]">
+          <td><img src="{{a.images[0].url}}"></td>
+        </div>
+          <div *ngIf="!a.images[0]">
+            <td><img src="\assets\default_userpic.jpg"></td>
+          </div>
+        </tr>
+        <tr>
+          <th><p>{{a.name}}</p></th>
+        </tr>
+        </a>
+      </table>
+    </div>
+    </div>
+
+    <form class="example-form" [formGroup] = "newPlaylist" (ngSubmit)="createPlaylist()">
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Name
+            </mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Description
+            </mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button color="primary">
+            Create
+        </button>
+    </form>
+
+    
+
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="category">
+    <div class="header">
+        <img class="userpic" src="{{category.icons[0].url}}">
+        <div class="name">
+            <h1><a>{{category.name}}</a></h1>
+        </div>
+    </div>
+
+    <div *ngIf="playlists">
+        <button mat-flat-button color="primary"><h2>Playlists</h2></button>
+    <br>
+        <div *ngFor="let p of playlists.playlists.items; index as id" class="new">
+            <table style="width:100%">
+                <a mat-button [routerLink] = "['/playlist', p.id]">
+            <tr>
+              <td><img src="{{p.images[0].url}}"></td>
+            </tr>
+            <tr>
+              <th><p>{{p.name}}</p></th>
+            </tr>
+            </a>
+          </table>
+        </div>
+    </div>
+</div>

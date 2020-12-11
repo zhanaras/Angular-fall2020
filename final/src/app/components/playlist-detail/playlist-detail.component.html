@@ -1,0 +1,63 @@
+<div *ngIf="playlist">
+    <div class="header">
+        <div *ngIf="playlist.images[0]">
+        <img src="{{playlist.images[0].url}}">
+    </div>
+
+    
+
+    <div *ngIf="!playlist.images[0]">
+        <img src="\assets\default_userpic.jpg">
+    </div>
+        <div class="name">
+            <h1><a href="{{playlist.external_urls.spotify}}" target="_blank" title="open in Spotify">{{playlist.name}}</a> <h5><i>by {{playlist.owner.display_name}}</i></h5> </h1>
+            <p>{{playlist.description}}</p>
+            <button mat-flat-button color="primary">{{playlist.followers.total}} followers</button>
+            <div *ngIf="isFollowing=='true'">
+                <button mat-flat-button (click)="unfollow()">Unfollow playlist</button>
+            </div>
+            <div *ngIf="isFollowing=='false'">
+                <button mat-flat-button (click)="follow()">Follow playlist</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let t of playlist.tracks.items" class="player">
+        <div class="song-name"> 
+            <p *ngFor="let a of t.track.artists"><a [routerLink]="['/artists', a.id]">{{a.name}}</a> </p> <p> - {{t.track.name}}</p>
+        <div *ngIf="isExplicit"><span class="material-icons">
+            explicit
+            </span></div>
+        </div>
+        
+            <audio controls="controls">
+                <source src="{{t.track.preview_url}}" type="audio/ogg" />
+                <source src="{{t.track.preview_url}}" type="audio/mpeg" />
+            </audio>
+    </div>
+
+    <div *ngIf = "playlist.owner.id == my_id" class="example-form">
+        Modify Playlist
+        <form [formGroup] = "modPlaylist" (ngSubmit)="modifyPlaylist()">
+            <mat-form-field class="example-full-width">
+                <mat-label>
+                    Name
+                </mat-label>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>
+                    Description
+                </mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+            <br>
+            <button mat-flat-button color="primary">
+                Change
+            </button>
+        </form>
+    </div>
+
+</div>
+

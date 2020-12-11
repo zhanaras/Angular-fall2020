@@ -1,0 +1,104 @@
+.example-card{
+    max-width: 100%;
+}
+
+.description{
+    display: flex;
+}
+
+.title{
+    margin-top: 15px;
+}
+
+.material-icons{
+    top: 0px;
+}
+
+.example-card .album-cover{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+.followers{
+    display: inline;
+}
+
+.followers button{
+    height: 35px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.followers button h3{
+    margin: 0 auto
+}
+
+.artists{
+    max-width: 200px;
+    max-height: 200px;
+    display: inline-block;
+    text-align: center;
+    margin: 30px;
+}
+
+.single{
+    margin: 0 auto;
+}
+
+.artists img{
+    width: 150px;
+    height: 150px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 10px;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.container{
+    margin: 20px;
+}
+
+.container button{
+    height: 35px;
+}
+
+.name .mat-button{
+    width: 150px;
+    height: 30px;
+    text-align: left;
+    margin: 0 auto;
+    padding: 0
+}
+
+.genres{
+    display: inline-block
+}
+
+.new{
+    display: inline-block;
+    margin:5px;
+    margin-bottom: 15px;
+    width: 220px;
+    height: 280px;
+    text-align: center
+}
+
+.new img{
+    width: 180px;
+    height: 180px;
+    margin: 15px;
+    background-size: cover;
+    border-radius:8px;
+    text-align: center;
+}
+.new p{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    white-space: pre-line; 
+    overflow-wrap: break-word;
+}

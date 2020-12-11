@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+      <span><a mat-button [routerLink]="['/']"><h1>AirPlay</h1></a></span>
+      <a mat-button [routerLink]="['/search']">Search</a>
+      <a mat-button href="#new-releases">New releases</a>
+      <a mat-button href="#local-new-releases">Popular in KZ</a>
+      <a mat-button href="#playlists">Playlists</a>
+      <a mat-button href="#categories">Categories</a>
+      <span class="example-spacer"></span>
+      
+      <div *ngIf="!isLogged">
+            <button mat-button (click)="getAuth()">Login</button>
+      </div>
+      <div *ngIf = "isLogged">
+            <button mat-button (click)="logout()">Logout</button>
+      </div>
+       
+</mat-toolbar>
+
+  

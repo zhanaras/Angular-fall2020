@@ -1,0 +1,101 @@
+<div *ngIf="isLogged">
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="side">
+        <div class="browse">
+            <input type="text" placeholder="Search..." name="searchStr" [(ngModel)]="searchStr" (keyup)="[getArtists(), getAlbums(), getTracks()]">
+        </div>
+            
+        <div class="side-list">
+            <mat-selection-list [multiple]="false">
+                <mat-list-option>
+                    <a mat-button [routerLink]="['/my-account']">
+                        <mat-icon>account_circle</mat-icon>
+                        My account</a>
+                </mat-list-option>
+              </mat-selection-list>
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div *ngIf="!searchStr">
+            <app-browse></app-browse>
+        </div>
+
+        <div *ngIf="searchStr">
+            <h2>Results for {{searchStr}}</h2>
+            <div *ngIf="artists.length != 0">
+                <h3><b>Artists</b></h3>
+                <div *ngFor="let a of artists; index as id" class="artists">
+                    <table style="width:100%">
+                        <a mat-button [routerLink] = "['/artists', a.id]">
+                        <tr>
+                            <td><img src="{{a.images[0].url}}"></td>
+                        </tr>
+                        <tr>
+                            <th><p>{{a.name}}</p></th>
+                        </tr>
+                        </a>
+                    </table>
+                </div>
+            </div>
+
+<div *ngIf="albums.length != 0">
+    <h3><b>Albums</b></h3>
+    <div *ngFor="let album of albums; index as id" class="new">
+        <table style="width:100%">
+            <a mat-button [routerLink] = "['/album', album.id]">
+            <tr>
+                <td><img src="{{album.images[0].url}}"></td>
+            </tr>
+            <tr>
+                <th><p>{{album.name}}</p></th>
+            </tr>
+            </a>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="tracks.length != 0">
+    <h3><b>Tracks</b></h3>
+    <div *ngFor="let track of tracks; index as id" class="player-browse">
+            <div *ngFor="let sa of track.artists" class="sartists"><a [routerLink] = "['/artists', sa.id]">{{sa.name}}</a>
+        </div>
+            <a mat-button [routerLink] = "['/single', track.album.id]">{{track.name}}</a> 
+            <!-- <a href="{{track.external_urls.spotify}}" target="_blank"></a> -->
+        <br>
+        <audio controls="controls">
+            <source src="{{track.preview_url}}" type="audio/ogg" />
+            <source src="{{track.preview_url}}" type="audio/mpeg" />
+        </audio>
+    </div>
+</div>
+
+<div *ngIf="playlists.length != 0">
+    <h3><b>Playlists</b></h3>
+    <div *ngFor="let p of playlists; index as id">
+        {{p.name}}
+    </div>
+</div>
+
+<div *ngIf="shows.length != 0">
+    <h3><b>Shows</b></h3>
+    <div *ngFor="let s of shows; index as id">
+        {{s.name}}
+    </div>
+</div>
+
+<div *ngIf="episodes.length != 0">
+    <h3><b>Episodes</b></h3>
+    <div *ngFor="let e of episodes; index as id">
+        {{e.name}}
+    </div>
+</div>
+        </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+
+<div *ngIf="!isLogged" class="not-logged">
+    <img src="\assets\arrow-up.png">
+    <h3>please log in</h3>
+</div>

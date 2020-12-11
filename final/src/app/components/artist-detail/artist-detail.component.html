@@ -1,0 +1,78 @@
+<div *ngIf="artistDet">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div class="description">
+                <img mat-card-image class="album-cover" src="{{artistDet.images[0].url}}">
+                <div class="title">
+                    <div class="name">
+                    <mat-card-title>
+                        <a mat-button href="{{artistDet.external_urls.spotify}}" target="_blank"><h1>{{artistDet.name}}</h1></a>
+                        </mat-card-title>
+                    <div class="followers"><button mat-flat-button color="primary"><h3><b>{{artistDet.followers.total}}</b> followers</h3></button></div>
+                    <br>
+                    <b>Genres: </b>
+                    <div *ngFor = "let g of artistDet.genres" class="genres">
+                        <div>{{g}},</div>
+                    </div>
+                    </div>
+                    
+                    <mat-card-subtitle>
+                    </mat-card-subtitle>
+                </div>
+          </div>
+        </mat-card-header>
+            <div *ngIf="albums" class="container">
+                <button mat-flat-button color="primary"><h1>Albums</h1></button>
+                <br>
+                <div *ngFor="let a of albums.items; index as id" class="new">
+                    <table style="width:100%">
+                        <a mat-button [routerLink]="['/album', a.id]">
+                    <tr>
+                      <td><img src="{{a.images[0].url}}"></td>
+                    </tr>
+                    <tr>
+                      <th><p>{{a.name}}</p></th>
+                    </tr>
+                </a>
+                  </table>
+                </div>
+            </div>
+
+            <div *ngIf="singles" class="container">
+                <button mat-flat-button color="primary"><h1>Singles</h1></button>
+                <br>
+                <div *ngFor="let s of singles.items; index as id" class="new">
+                    <table style="width:100%">
+                        <a mat-button [routerLink]="['/single', s.id]">
+                    <tr>
+                      <td><img src="{{s.images[0].url}}"></td>
+                    </tr>
+                    <tr>
+                      <th><p>{{s.name}}</p></th>
+                    </tr>
+                </a>
+                  </table>
+                </div>
+            </div>
+
+            <div *ngIf="appears" class="container">
+                <button mat-flat-button color="primary"><h1>Appears on</h1></button>
+                <br>
+                <div *ngFor="let ap of appears.items; index as id" class="new">
+                    <table style="width:100%">
+                        <a mat-button [routerLink]="['/single', ap.id]">
+                    <tr>
+                      <td><img src="{{ap.images[0].url}}"></td>
+                    </tr>
+                    <tr>
+                      <th><p>{{ap.name}}</p></th>
+                    </tr>
+                </a>
+                  </table>
+                </div>
+            </div>
+        <mat-card-content>
+        </mat-card-content>
+    </mat-card>
+</div>

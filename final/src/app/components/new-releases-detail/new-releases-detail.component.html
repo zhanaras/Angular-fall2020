@@ -1,0 +1,40 @@
+<div *ngIf="newRDet">
+
+    <mat-card class="example-card">
+        
+        <mat-card-header>
+            <div class="description">
+                <img mat-card-image class="album-cover" src="{{newRDet.images[0].url}}">
+                <div class="title">
+                    <div class="name">
+                    <mat-card-title>{{newRDet.name}}</mat-card-title>
+                    <div *ngIf="isExplicit">
+                        <span class="material-icons">
+                            explicit
+                            </span>
+                      </div>
+                    </div>
+                    <mat-card-subtitle>
+                        <div *ngFor = "let a of newRDet.artists">
+                            <a mat-button [routerLink] = "['/artists', a.id]">{{a.name}}</a>
+                        </div>
+                    </mat-card-subtitle>
+                </div>
+          </div>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div *ngFor="let t of newRDet.tracks.items" class="player">
+              <a href="{{t.external_urls.spotify}}" target="_blank"><p>{{t.track_number}}. {{t.name}}</p></a>
+            <audio controls="controls">
+                <source src="{{t.preview_url}}" type="audio/ogg" />
+                <source src="{{t.preview_url}}" type="audio/mpeg" />
+            </audio>
+            
+            <button mat-button (click) = "addToPlaylist()"><span class="material-icons">
+                library_add
+                </span></button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
