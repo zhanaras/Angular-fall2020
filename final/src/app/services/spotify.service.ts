@@ -181,6 +181,17 @@ export class SpotifyService {
     ).pipe(map((res:any) => res))
   }
 
+  getMyArtists(token: string){
+    this.searchUrl = `https://api.spotify.com/v1/me/following?type=artist`;
+    return this._http.get(this.searchUrl,
+    {
+      headers: {
+      'Authorization': 'Bearer ' + token
+      },
+    }
+    ).pipe(map((res:any) => res))
+  }
+
   createPlaylist(user_id: string, name: string, isPublic: boolean, collaborative: boolean, description: string, token: string){
     this.searchUrl = `https://api.spotify.com/v1/users/${user_id}/playlists`;
     return this._http.post<any>(this.searchUrl, 
@@ -252,6 +263,41 @@ export class SpotifyService {
       },
       {
       headers: {
+      'Authorization': 'Bearer ' + token
+      },
+    })
+  }
+
+  checkFollowArtist(id: string, token: string){
+    this.searchUrl = `https://api.spotify.com/v1/me/following/contains?type=artist&ids=` + id;
+    return this._http.get<any>(this.searchUrl, 
+      {
+      headers: {
+      'Authorization': 'Bearer ' + token
+      },
+    })
+  }
+
+  unfollowArtist(ids: string, token: string){
+    this.searchUrl = `https://api.spotify.com/v1/me/following?type=artist&ids=` + ids;
+    return this._http.delete(this.searchUrl, 
+      {
+      headers: {
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + token
+      },
+    })
+  }
+
+  followArtist(ids: string, token: string){
+    this.searchUrl = `https://api.spotify.com/v1/me/following?type=artist`;
+    return this._http.put<any>(this.searchUrl, 
+      {
+        "ids" : [ids]
+      },
+      {
+      headers: {
+      'Content-Type':  'application/json',
       'Authorization': 'Bearer ' + token
       },
     })

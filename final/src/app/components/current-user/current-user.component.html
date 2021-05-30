@@ -1,3 +1,4 @@
+<div class="container">
 <div *ngIf="user">
     <div class="header">
         <img class="userpic" src="{{user.images[0].url}}">
@@ -8,6 +9,8 @@
     </div>
 
     <div *ngIf="albums">
+        <h1>Playlists you follow</h1>
+        
     <div *ngFor = "let a of albums.items" class="new">
         <table style="width:100%">
             <a mat-button [routerLink] = "['/playlist', a.id]">
@@ -27,6 +30,8 @@
     </div>
     </div>
 
+    <br>
+    <h1>Create your playlist</h1>
     <form class="example-form" [formGroup] = "newPlaylist" (ngSubmit)="createPlaylist()">
         <mat-form-field class="example-full-width">
             <mat-label>
@@ -46,7 +51,29 @@
             Create
         </button>
     </form>
+    <br>
 
+    <div *ngIf="artists">
+        <h1>Artists you follow</h1>
+        <div *ngFor = "let ar of artists.artists.items" class="new">
+            <table style="width:100%">
+                <a mat-button [routerLink] = "['/artists', ar.id]">
+            <tr>
+                <div *ngIf="ar.images[0]">
+              <td><img src="{{ar.images[0].url}}"></td>
+            </div>
+              <div *ngIf="!ar.images[0]">
+                <td><img src="\assets\default_userpic.jpg"></td>
+              </div>
+            </tr>
+            <tr>
+              <th><p>{{ar.name}}</p></th>
+            </tr>
+            </a>
+          </table>
+        </div>
+    </div>
     
 
+</div>
 </div>

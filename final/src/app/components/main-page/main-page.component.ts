@@ -26,6 +26,8 @@ export class MainPageComponent implements OnInit {
   access_token = new URLSearchParams(this.url.hash).get('#access_token');
 
   token;
+  user
+  id
 
   isLogged: boolean;
 
@@ -41,18 +43,22 @@ export class MainPageComponent implements OnInit {
     this.getCategories();
     this.getTracks()
 
-    // console.log(this.url)
-    // console.log(this.url.hash)
-    // console.log(this.access_token)
-
     localStorage.setItem('access_token', (this.access_token));
 
     console.log(this.getToken())
     this.checkLogged()
+
+    this.getMe()
   }
 
   getToken(){
     return localStorage.getItem('access_token')
+  }
+
+  getMe(){
+    this.spotifyService.getMyAccount(this.getToken()).subscribe(user => {this.user = user;
+    this.id = user.id
+    localStorage.setItem('user_id', user.id);})
   }
 
   getArtists(){

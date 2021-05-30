@@ -21,6 +21,7 @@ export class CurrentUserComponent implements OnInit {
     albums: Playlist[] = []
     isNull: boolean
     id: string
+    artists
 
     form: FormGroup;
     submitted = false;
@@ -38,7 +39,8 @@ export class CurrentUserComponent implements OnInit {
   ngOnInit(): void {
     this.getMe()
     this.getMyAlbums()
-    this.setUserId()
+    this.getMyArtists()
+    localStorage.setItem('user_id', 'fchwhev6bnzdii73cmwvl8i30')
   }
 
   get f(){
@@ -51,7 +53,7 @@ export class CurrentUserComponent implements OnInit {
  
   getMe(){
     this.spotifyService.getMyAccount(this.getToken()).subscribe(user => {this.user = user;
-      this.id = user.id
+    this.id = user.id
     console.log(this.user);})
   }
 
@@ -60,14 +62,15 @@ export class CurrentUserComponent implements OnInit {
     console.log(albums)})
   }
 
+  getMyArtists(){
+    this.spotifyService.getMyArtists(this.getToken()).subscribe(artists => {this.artists = artists;
+    console.log(artists)})
+  }
+
   createPlaylist(){
     this.id = this.user.id
     this.spotifyService.createPlaylist(this.id, this.f.name.value, this.f.public.value, this.f.collaborative.value, this.f.description.value, this.getToken())
       .subscribe(
         data => console.log(data))
-  }
-
-  setUserId(){
-    localStorage.setItem('cuser_id', this.user.id)
   }
 }

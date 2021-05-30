@@ -19,6 +19,9 @@ export class BrowseComponent implements OnInit {
   access_token = new URLSearchParams(this.url.hash).get('#access_token');
   isLogged: boolean;
 
+  user
+  id
+
   constructor(public spotifyService: SpotifyService) { }
 
   ngOnInit(): void {

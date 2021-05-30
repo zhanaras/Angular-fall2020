@@ -13,6 +13,7 @@ export class ArtistDetailComponent implements OnInit {
   albums: [] = []
   singles: [] = []
   appears: [] = []
+  isFollowing
 
   url = window.location;
   access_token = new URLSearchParams(this.url.hash).get('#access_token');
@@ -25,6 +26,7 @@ export class ArtistDetailComponent implements OnInit {
     this.getArtistAlbums()
     this.getArtistSingles()
     this.getArtistAppears()
+    this.checkFollow()
   }
 
   getToken(){
@@ -53,6 +55,25 @@ export class ArtistDetailComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')
     this.spotifyService.getArtistAppears(this.id, this.getToken()).subscribe(appears => {this.appears = appears;
     console.log(appears)})
+  }
+
+  checkFollow(){
+    let a_id = this.route.snapshot.paramMap.get('id')
+    this.spotifyService.checkFollowArtist(a_id, this.getToken()).subscribe(
+      data => {console.log(data);
+      this.isFollowing = data})
+  }
+
+  unfollow(){
+    let a_id = this.route.snapshot.paramMap.get('id')
+    this.spotifyService.unfollowArtist(a_id, this.getToken()).subscribe(
+      data => {console.log(data);})
+  }
+
+  follow(){
+    let a_id = this.route.snapshot.paramMap.get('id')
+    this.spotifyService.followArtist(a_id, this.getToken()).subscribe(
+      data => {console.log(data);})
   }
 
 }

@@ -10,7 +10,13 @@
                         <a mat-button href="{{artistDet.external_urls.spotify}}" target="_blank"><h1>{{artistDet.name}}</h1></a>
                         </mat-card-title>
                     <div class="followers"><button mat-flat-button color="primary"><h3><b>{{artistDet.followers.total}}</b> followers</h3></button></div>
-                    <br>
+                    
+                    <div *ngIf="isFollowing=='true'">
+                      <button mat-flat-button (click)="unfollow()">Unfollow artist</button>
+                  </div>
+                  <div *ngIf="isFollowing=='false'">
+                      <button mat-flat-button (click)="follow()">Follow artist</button>
+                  </div><br>
                     <b>Genres: </b>
                     <div *ngFor = "let g of artistDet.genres" class="genres">
                         <div>{{g}},</div>
